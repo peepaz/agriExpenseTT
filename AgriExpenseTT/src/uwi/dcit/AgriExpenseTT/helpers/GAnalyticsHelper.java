@@ -49,17 +49,17 @@ public class GAnalyticsHelper {
      * @param eventName The current event
      * @param status the outcome of the event
      */
-     public void sendEvent(String category, String action, String eventName, long status){
-         if (canSend()) {
-             tracker.send(new HitBuilders.EventBuilder()
-                 .setCategory(category)
-                 .setAction(action)
-                 .setLabel(eventName)
-                 .setValue(status)
-                 .setCustomDimension(1, userEmail)
-                 .build());
-         }
-     }
+    public void sendEvent(String category, String action, String eventName, long status){
+        if (canSend()) {
+            tracker.send(new HitBuilders.EventBuilder()
+                    .setCategory(category)
+                    .setAction(action)
+                    .setLabel(eventName)
+                    .setValue(status)
+                    .setCustomDimension(1, userEmail)
+                    .build());
+        }
+    }
 
     public void sendPreference(String action, String eventName, int status){
         sendEvent("Preferences", action, eventName, status); // 0 status for failed 1 for success
